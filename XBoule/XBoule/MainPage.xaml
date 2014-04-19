@@ -37,7 +37,7 @@
          -->
 
          <!--Panorama control-->
-        <phone:Panorama Title="my application">
+        <phone:Panorama Title="{Binding Path=LocalizedResources.Player, Source={StaticResource LocalizedStrings}}">
             <phone:Panorama.Background>
                 <ImageBrush ImageSource="/XBoule;component/Assets/PanoramaBackground.png"/>
             </phone:Panorama.Background>

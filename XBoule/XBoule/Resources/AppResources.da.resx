@@ -122,16 +122,16 @@
     <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
   </data>
   <data name="ResourceLanguage" xml:space="preserve">
-    <value>en-US</value>
+    <value>da</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>xboule</value>
+    <value>min applikation</value>
   </data>
   <data name="SampleProperty" xml:space="preserve">
-    <value>Sample Runtime Property Value</value>
+    <value>dette er en property</value>
   </data>
   <data name="Player" xml:space="preserve">
-    <value>player</value>
+    <value>spiller</value>
   </data>
 </root>
