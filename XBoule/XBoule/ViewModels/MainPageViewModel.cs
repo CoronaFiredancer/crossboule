@@ -5,11 +5,15 @@ using XBoule.Resources;
 
 namespace XBoule.ViewModels
 {
-	public class MainViewModel : INotifyPropertyChanged
+	public class MainPageViewModel : INotifyPropertyChanged
 	{
-		public MainViewModel()
+		public MainPageViewModel()
 		{
 			this.Items = new ObservableCollection<ItemViewModel>();
+			if (!IsDataLoaded) {
+				LoadData();
+				IsDataLoaded = true;
+			}
 		}
 
 		/// <summary>

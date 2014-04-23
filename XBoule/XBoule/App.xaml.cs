@@ -15,23 +15,25 @@ namespace XBoule
 {
 	public partial class App : Application
 	{
-		private static MainViewModel viewModel = null;
+		/*
+		private static MainPageViewModel viewModel = null;
 
 		/// <summary>
 		/// A static ViewModel used by the views to bind against.
 		/// </summary>
-		/// <returns>The MainViewModel object.</returns>
-		public static MainViewModel ViewModel
+		/// <returns>The MainPageViewModel object.</returns>
+		public static MainPageViewModel ViewModel
 		{
 			get
 			{
 				// Delay creation of the view model until necessary
 				if (viewModel == null)
-					viewModel = new MainViewModel();
+					viewModel = new MainPageViewModel();
 
 				return viewModel;
 			}
 		}
+		 */
 
 		/// <summary>
 		/// Provides easy access to the root frame of the Phone Application.
@@ -44,17 +46,19 @@ namespace XBoule
 		/// </summary>
 		public App()
 		{
-			// Global handler for uncaught exceptions.
-			UnhandledException += Application_UnhandledException;
-
 			// Standard XAML initialization
 			InitializeComponent();
 
+			/*
+			// Global handler for uncaught exceptions.
+			UnhandledException += Application_UnhandledException;
+			
 			// Phone-specific initialization
 			InitializePhoneApplication();
 
 			// Language display initialization
 			InitializeLanguage();
+			 * */
 
 			// Show graphics profiling information while debugging.
 			if (Debugger.IsAttached)
@@ -78,6 +82,7 @@ namespace XBoule
 
 		}
 
+		/*
 		// Code to execute when the application is launching (eg, from Start)
 		// This code will not execute when the application is reactivated
 		private void Application_Launching(object sender, LaunchingEventArgs e)
@@ -246,5 +251,6 @@ namespace XBoule
 				throw;
 			}
 		}
+		 * */
 	}
 }

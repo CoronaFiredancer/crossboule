@@ -16,7 +16,8 @@ namespace XBoule
 		{
 			container = new PhoneContainer();
 			container.RegisterPhoneServices(RootFrame);
-			container.PerRequest<MainViewModel>();
+			container.PerRequest<MainPageViewModel>();
+			container.PerRequest<ItemViewModel>();
 		}
 		protected override object GetInstance(Type service, string key)
 		{
