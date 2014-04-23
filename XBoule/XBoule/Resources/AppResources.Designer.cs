@@ -70,6 +70,15 @@ namespace XBoule.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to new game.
+        /// </summary>
+        public static string NewGame {
+            get {
+                return ResourceManager.GetString("NewGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to player.
         /// </summary>
         public static string Player {

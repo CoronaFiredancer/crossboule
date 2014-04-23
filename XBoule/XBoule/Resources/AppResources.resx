@@ -134,4 +134,7 @@
   <data name="Player" xml:space="preserve">
     <value>player</value>
   </data>
+  <data name="NewGame" xml:space="preserve">
+    <value>new game</value>
+  </data>
 </root>

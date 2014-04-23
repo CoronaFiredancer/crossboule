@@ -126,12 +126,15 @@
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>min applikation</value>
+    <value>xboule</value>
   </data>
   <data name="SampleProperty" xml:space="preserve">
     <value>dette er en property</value>
   </data>
   <data name="Player" xml:space="preserve">
     <value>spiller</value>
+  </data>
+  <data name="NewGame" xml:space="preserve">
+    <value>nyt spil</value>
   </data>
 </root>
