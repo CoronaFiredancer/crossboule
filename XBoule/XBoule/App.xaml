@@ -4,11 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:xBoule="clr-namespace:XBoule">
 
     <!--Application Resources-->
-    <Application.Resources>
-        <sys:Double x:Key="PanoramaItemHeaderFontSize">66</sys:Double>
+	<Application.Resources>
+		<xBoule:Bootstrapper x:Key="Bootstrapper" />
+		
+		<sys:Double x:Key="PanoramaItemHeaderFontSize">66</sys:Double>
 
         <Style x:Key="PanoramaItemHeaderTextStyle" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
