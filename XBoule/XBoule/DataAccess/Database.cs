@@ -10,7 +10,7 @@ namespace XBoule.DataAccess
 	class Database
 	{
 		private async void CreateDatabase() {
-			var db = new Sqlite.Database();
+			//var db = new Sqlite.Database();
 
 		}
 	}
