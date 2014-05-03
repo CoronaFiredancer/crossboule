@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
 using XBoule.Resources;
 
 namespace XBoule.ViewModels
@@ -15,6 +16,8 @@ namespace XBoule.ViewModels
 				IsDataLoaded = true;
 			}
 		}
+
+		private int counter = 0;
 
 		/// <summary>
 		/// A collection for ItemViewModel objects.
@@ -57,6 +60,21 @@ namespace XBoule.ViewModels
 		{
 			get;
 			private set;
+		}
+
+		public void AddOneAction() {
+			Items.Add(new ItemViewModel
+				{
+					LineOne = "Dynamically added " + counter,
+					LineTwo = "Some words",
+					LineThree = "More Words"
+				});
+			counter++;
+		}
+
+		public void RemoveLastAction() {
+			Items.RemoveAt(Items.Count-1);
+			counter--;
 		}
 
 		/// <summary>

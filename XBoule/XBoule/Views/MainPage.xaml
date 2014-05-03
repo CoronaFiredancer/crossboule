@@ -44,8 +44,19 @@
 
             <!--Panorama item one-->
             <phone:PanoramaItem Header="{Binding Path=LocalizedResources.NewGame, Source={StaticResource LocalizedStrings}}">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"></RowDefinition>
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<StackPanel Grid.Row="0" Orientation="Horizontal">
+						<Button Content="Add one item" x:Name="AddOneAction"/>
+						<Button Content="Remove last" x:Name="RemoveLastAction"/>
+						<Button Content="Remove specific" x:Name="RemoveSpecificAciton"/>
+					</StackPanel>
+					
                 <!--Single line list with text wrapping-->
-                <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding Items}">
+                <phone:LongListSelector Grid.Row="1" Margin="0,0,-22,0" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,-6,0,12">
@@ -54,7 +65,8 @@
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
-            </phone:PanoramaItem>
+				</Grid>
+			</phone:PanoramaItem>
 
             <!--Panorama item two-->
             <phone:PanoramaItem>

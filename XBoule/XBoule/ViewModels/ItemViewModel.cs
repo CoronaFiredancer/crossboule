@@ -12,7 +12,7 @@ namespace XBoule.ViewModels
 {
 	public class ItemViewModel : INotifyPropertyChanged
 	{
-		private string _lineOne;
+		private string lineOne;
 		/// <summary>
 		/// Sample ViewModel property; this property is used in the view to display its value using a Binding.
 		/// </summary>
@@ -21,19 +21,19 @@ namespace XBoule.ViewModels
 		{
 			get
 			{
-				return _lineOne;
+				return lineOne;
 			}
 			set
 			{
-				if (value != _lineOne)
+				if (value != lineOne)
 				{
-					_lineOne = value;
+					lineOne = value;
 					NotifyPropertyChanged("LineOne");
 				}
 			}
 		}
 
-		private string _lineTwo;
+		private string lineTwo;
 		/// <summary>
 		/// Sample ViewModel property; this property is used in the view to display its value using a Binding.
 		/// </summary>
@@ -42,13 +42,13 @@ namespace XBoule.ViewModels
 		{
 			get
 			{
-				return _lineTwo;
+				return lineTwo;
 			}
 			set
 			{
-				if (value != _lineTwo)
+				if (value != lineTwo)
 				{
-					_lineTwo = value;
+					lineTwo = value;
 					NotifyPropertyChanged("LineTwo");
 				}
 			}
