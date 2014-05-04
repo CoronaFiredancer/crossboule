@@ -75,6 +75,19 @@ namespace XBoule.ViewModels
 			}
 		}
 
+		private string image;
+
+		public string Image
+		{
+			get { return image; }
+			set {
+				if (value != image) {
+					image = value;
+					NotifyPropertyChanged("Image");
+				}
+			}
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 		private void NotifyPropertyChanged(String propertyName)
 		{

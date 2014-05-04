@@ -50,9 +50,9 @@
 						<RowDefinition Height="*" />
 					</Grid.RowDefinitions>
 					<StackPanel Grid.Row="0" Orientation="Horizontal">
-						<Button Content="Add one item" x:Name="AddOneAction"/>
-						<Button Content="Remove last" x:Name="RemoveLastAction"/>
-						<Button Content="Remove specific" x:Name="RemoveSpecificAciton"/>
+						<Button Width="100" Content="Add" x:Name="AddOneAction"/>
+						<Button Width="150" Content="Remove" x:Name="RemoveLastAction"/>
+						<Button Width="150" Content="Modify" x:Name="ModifyLastAction"/>
 					</StackPanel>
 					
                 <!--Single line list with text wrapping-->
@@ -89,8 +89,15 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="12,2,0,4" Height="105" Width="432">
                                 <!--Replace rectangle with image-->
-                                <Border BorderThickness="1" Width="99" Height="99" BorderBrush="#FFFFC700" Background="#FFFFC700"/>
-                                <StackPanel Width="311" Margin="8,-7,0,0">
+                                <!--<Border BorderThickness="1" Width="99" Height="99" BorderBrush="#FFFFC700" Background="#FFFFC700"/>-->
+								<Image Margin="0,0,12,12" Stretch="UniformToFill" >
+									<Image.Source>
+										<BitmapImage x:Name="TheImage" 
+														 UriSource="{Binding Image}" 
+														 DecodePixelWidth="99" DecodePixelHeight="99" />
+									</Image.Source>
+								</Image>
+								<StackPanel Width="311" Margin="8,-7,0,0">
                                     <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Margin="10,0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeLarge}" />
                                     <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="10,-2,10,0" Style="{StaticResource PhoneTextSubtleStyle}" />
                                 </StackPanel>
