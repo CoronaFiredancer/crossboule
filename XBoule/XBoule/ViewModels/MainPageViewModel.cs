@@ -90,11 +90,11 @@ namespace XBoule.ViewModels
 			counter--;
 		}
 
-		public void ModifyLastAction() {
+		public async void ModifyLastAction() {
 			var item = Items.First();
 			if (!modified) {
 				item.LineTwo = "Dynamically modified";
-				var img = Task.Run(() => visioClient.GetImage(remoteResource, localStoragePath)).Result;
+				var img = await visioClient.GetImage(remoteResource, localStoragePath);
 				item.Image = img;
 			}
 			else {
