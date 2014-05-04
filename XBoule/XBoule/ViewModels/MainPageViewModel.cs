@@ -2,24 +2,33 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
+using XBoule.DataAccess;
 using XBoule.Resources;
+using XBoule.Services;
 
 namespace XBoule.ViewModels
 {
 	public class MainPageViewModel : INotifyPropertyChanged
 	{
-		public MainPageViewModel()
-		{
+		private VisioClient visioClient;
+		private IFileStorageService fileStorageService = new PhoneFileStorageService();
+
+		public MainPageViewModel(IFileStorageService fileStorageService) {
+			this.fileStorageService = fileStorageService;
 			this.Items = new ObservableCollection<ItemViewModel>();
 			if (!IsDataLoaded) {
 				LoadData();
 				IsDataLoaded = true;
 			}
+			visioClient = new VisioClient(this.fileStorageService);
 		}
 
 		private int counter = 0;
 		private bool modified;
+		private string remoteResource = "http://device.e-pages.dk/data/karjalainen/959/vector/t1.jpg";
+		private string localStoragePath = "covers/karjalainen_959.jpg";
 
 		/// <summary>
 		/// A collection for ItemViewModel objects.
@@ -85,7 +94,8 @@ namespace XBoule.ViewModels
 			var item = Items.First();
 			if (!modified) {
 				item.LineTwo = "Dynamically modified";
-				item.Image = "/Assets/IL_99.png";
+				var img = Task.Run(() => visioClient.GetImage(remoteResource, localStoragePath)).Result;
+				item.Image = img;
 			}
 			else {
 				item.LineTwo = "Reverted";

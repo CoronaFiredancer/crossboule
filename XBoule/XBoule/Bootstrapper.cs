@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using XBoule.Services;
 using XBoule.ViewModels;
 
 namespace XBoule
@@ -18,6 +19,9 @@ namespace XBoule
 			container.RegisterPhoneServices(RootFrame);
 			container.PerRequest<MainPageViewModel>();
 			container.PerRequest<ItemViewModel>();
+
+			container.PerRequest<IFileStorageService, PhoneFileStorageService>();
+
 		}
 		protected override object GetInstance(Type service, string key)
 		{
