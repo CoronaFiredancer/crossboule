@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using GoogleAnalytics;
 using Microsoft.Phone.Controls;
 using XBoule.DataAccess;
 using XBoule.Features.Interfaces;
@@ -44,7 +45,7 @@ namespace XBoule.ViewModels
 		/// </summary>
 		public ObservableCollection<ItemViewModel> Items { get; private set; }
 
-		private void SelectedPanoramaAction(SelectionChangedEventArgs e) // use as matteo would
+		public void PanoramaAction(SelectionChangedEventArgs e) // use as matteo would
 		{
 			if (e.AddedItems.Count < 1) return;
 			if (!(e.AddedItems[0] is PanoramaItem)) return;
@@ -53,15 +54,15 @@ namespace XBoule.ViewModels
 
 			string strTag = (string)selectedItem.Tag;
 			if (strTag.Equals("one")) {
-				MessageBox.Show("one");
+				analytics.TrackView("one");
 			}
 			// Do places stuff
 			else if (strTag.Equals("two")) {
-				MessageBox.Show("two");
+				analytics.TrackView("two");
 			}
 			// Do routes stuff
 			else if (strTag.Equals("three")) {
-				MessageBox.Show("three");
+				analytics.TrackView("three");
 			}
 
 		}
@@ -115,7 +116,7 @@ namespace XBoule.ViewModels
 			counter++;
 		}
 
-		public void RemoveLastAction()
+		public void RemoveLastActionss()
 		{
 			if (counter <= 0) return;
 

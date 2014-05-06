@@ -40,13 +40,14 @@
          -->
 
          <!--Panorama control-->
-		<phone:Panorama Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
-						cal:Message.Attach="[Event SelectionChanged] = [Action SelectedPanoramaAction($eventArgs)]">
-			<i:Interaction.Triggers>
+		<phone:Panorama Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" x:Name="Panorama"
+						cal:Message.Attach="[Event SelectionChanged] = [PanoramaAction($eventArgs)]" >
+						
+			<!--<i:Interaction.Triggers>
 				<i:EventTrigger EventName="SelectionChanged">
-					<cal:ActionMessage MethodName="SelectedPanoramaAction" />
+					<cal:ActionMessage MethodName="PanoramaAction" />
 				</i:EventTrigger>
-			</i:Interaction.Triggers>
+			</i:Interaction.Triggers>-->
 			<phone:Panorama.Background>
                 <ImageBrush ImageSource="/XBoule;component/Assets/PanoramaBackground.png"/>
             </phone:Panorama.Background>
@@ -59,8 +60,14 @@
 						<RowDefinition Height="*" />
 					</Grid.RowDefinitions>
 					<StackPanel Grid.Row="0" Orientation="Horizontal">
-						<Button Width="100" Content="Add" x:Name="AddOneAction"/>
-						<Button Width="150" Content="Remove" x:Name="RemoveLastAction"/>
+						<Button Width="100" Content="Add" x:Name="AddOne">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Click">
+									<cal:ActionMessage MethodName="AddOneAction" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Button>
+						<Button Width="150" Content="Remove" x:Name="RemoveLastAction" cal:Message.Attach="[Event Click] = [Action RemoveLastActionss]"/>
 						<Button Width="150" Content="Modify" x:Name="ModifyLastAction"/>
 					</StackPanel>
 					
