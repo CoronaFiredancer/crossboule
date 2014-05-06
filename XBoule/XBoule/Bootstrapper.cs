@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using XBoule.Features;
+using XBoule.Features.Interfaces;
 using XBoule.Services;
 using XBoule.ViewModels;
 
@@ -21,6 +23,7 @@ namespace XBoule
 			container.PerRequest<ItemViewModel>();
 
 			container.PerRequest<IFileStorageService, PhoneFileStorageService>();
+			container.PerRequest<IGoogleAnalytics, GoogleAnalyticsWrapper>();
 
 		}
 		protected override object GetInstance(Type service, string key)

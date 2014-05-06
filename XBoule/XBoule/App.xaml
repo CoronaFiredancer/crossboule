@@ -5,10 +5,14 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
-    xmlns:xBoule="clr-namespace:XBoule">
+    xmlns:xBoule="clr-namespace:XBoule"
+    xmlns:converters="clr-namespace:XBoule.Converters">
 
     <!--Application Resources-->
 	<Application.Resources>
+		<ResourceDictionary>
+			<converters:PathConverter x:Key="PathConverter"></converters:PathConverter>
+		</ResourceDictionary>
 		<xBoule:Bootstrapper x:Key="Bootstrapper" />
 		
 		<sys:Double x:Key="PanoramaItemHeaderFontSize">66</sys:Double>

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 using XBoule.Services;
 
 namespace XBoule.DataAccess
@@ -28,8 +31,8 @@ namespace XBoule.DataAccess
 
 				HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, httpAddress);
 				request.Headers.UserAgent.ParseAdd("Windows Mobile");
-				//HttpResponseMessage response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
-				var response = client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).Result;
+				HttpResponseMessage response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
+				//var response = client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).Result;
 				using (var stream = await response.Content.ReadAsStreamAsync())
 				{
 					await fileStorage.SaveImageAsync(stream, storagePath);

@@ -12,7 +12,10 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="False">
+    shell:SystemTray.IsVisible="False"
+	
+	xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -37,13 +40,19 @@
          -->
 
          <!--Panorama control-->
-        <phone:Panorama Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
-            <phone:Panorama.Background>
+		<phone:Panorama Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+						cal:Message.Attach="[Event SelectionChanged] = [Action SelectedPanoramaAction($eventArgs)]">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="SelectionChanged">
+					<cal:ActionMessage MethodName="SelectedPanoramaAction" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+			<phone:Panorama.Background>
                 <ImageBrush ImageSource="/XBoule;component/Assets/PanoramaBackground.png"/>
             </phone:Panorama.Background>
 
             <!--Panorama item one-->
-            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.NewGame, Source={StaticResource LocalizedStrings}}">
+            <phone:PanoramaItem Header="{Binding Path=LocalizedResources.NewGame, Source={StaticResource LocalizedStrings}}" Tag="one">
 				<Grid>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="Auto"></RowDefinition>
@@ -69,7 +78,7 @@
 			</phone:PanoramaItem>
 
             <!--Panorama item two-->
-            <phone:PanoramaItem>
+            <phone:PanoramaItem Tag="two">
                 <!--Double line list with image placeholder and text wrapping using a floating header that scrolls with the content-->
                 <phone:LongListSelector Margin="0,-38,-22,2" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ListHeaderTemplate>
@@ -93,7 +102,7 @@
 								<Image Margin="0,0,12,12" Stretch="UniformToFill" >
 									<Image.Source>
 										<BitmapImage x:Name="TheImage" 
-														 UriSource="{Binding Image}" 
+														 UriSource="{Binding Image, Converter={StaticResource PathConverter}}" 
 														 DecodePixelWidth="99" DecodePixelHeight="99" />
 									</Image.Source>
 								</Image>
@@ -108,7 +117,7 @@
             </phone:PanoramaItem>
 
             <!--Panorama item three-->
-            <phone:PanoramaItem Header="third item" Orientation="Horizontal">
+            <phone:PanoramaItem Header="third item" Orientation="Horizontal" Tag="three">
                 <!--Double wide Panorama with large image placeholders-->
                 <Grid>
                     <StackPanel Margin="0,4,16,0" Orientation="Vertical" VerticalAlignment="Top">

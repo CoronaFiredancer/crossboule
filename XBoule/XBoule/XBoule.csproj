@@ -96,6 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\PathConverter.cs" />
     <Compile Include="DataAccess\Database.cs" />
     <Compile Include="DataAccess\VisioClient.cs" />
     <Compile Include="Entities\Game.cs" />
@@ -103,6 +104,8 @@
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\PlayerPoints.cs" />
     <Compile Include="Entities\Round.cs" />
+    <Compile Include="Features\GoogleAnalyticsWrapper.cs" />
+    <Compile Include="Features\Interfaces\IGoogleAnalytics.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +130,9 @@
     </DesignData>
   </ItemGroup>
   <ItemGroup>
+    <None Include="analytics.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
@@ -135,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\PanoramaBackground.png" />
+    <Content Include="analytics.xml" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -172,6 +179,12 @@
     </Reference>
     <Reference Include="Caliburn.Micro.Extensions">
       <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\wp8\Caliburn.Micro.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleAnalytics">
+      <HintPath>..\packages\GoogleAnalyticsSDK.1.2.06\lib\windowsphone8\GoogleAnalytics.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleAnalytics.Core">
+      <HintPath>..\packages\GoogleAnalyticsSDK.1.2.06\lib\windowsphone8\GoogleAnalytics.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Threading.Tasks">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\wp8\Microsoft.Threading.Tasks.dll</HintPath>
